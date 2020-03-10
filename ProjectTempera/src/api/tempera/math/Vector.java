@@ -103,4 +103,16 @@ public class Vector {
 		return this;
 	}
 	
+	/**
+	 * Gets the distance between this vector and another
+	 * @param vector the vector to compare to this one
+	 * @return the distance between this vector and another
+	 */
+	public double distanceFrom(Vector vector) {
+		double x = vector.x - this.x;
+		double y = vector.y - this.y;
+		
+		return x * x + y * y;
+	}
+	
 }
