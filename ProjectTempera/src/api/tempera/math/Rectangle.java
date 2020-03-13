@@ -95,7 +95,9 @@ public class Rectangle {
 	}
 	
 	public boolean intersectsWith(Rectangle rect) {
-		return 	(x1 > rect.x2 || x2 < rect.x1) &&
-				(y1 > rect.y2 || y2 < rect.y2);
+		if(x1 > rect.x2 || x2 < rect.x1) return false; //they are on the left or right of each other
+		if(y1 > rect.y2 || y2 < rect.y2) return false; //they are above or below each other
+		
+		return true;
 	}
 }
