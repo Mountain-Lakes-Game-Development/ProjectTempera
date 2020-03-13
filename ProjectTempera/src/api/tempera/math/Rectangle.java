@@ -15,6 +15,9 @@ public class Rectangle {
 	 * @param y2 the top edge of this rectangle
 	 */
 	public Rectangle(double x1, double x2, double y1, double y2) {
+		if(x1 > x2 || y1 > y2)
+			throw new RuntimeException("There was an error with creating a rectangle: sides are overlapping");
+		
 		this.x1 = x1;
 		this.x2 = x2;
 		
@@ -59,5 +62,40 @@ public class Rectangle {
 	 */
 	public double getHeight() {
 		return Math.abs(y1 - y2);
+	}
+	
+	/**
+	 * Gets the rectangle's 4 vertices, starting from the
+	 * bottom left going around clockwise.
+	 * @return an array containing the rectangle's 4 vertices
+	 */
+	public Vector[] getVertices() {
+		return new Vector[] {
+				new Vector(x1, y1),
+				new Vector(x1, y2),
+				new Vector(x2, y2),
+				new Vector(x2, y1)
+		};
+	}
+	
+	/**
+	 * Gets the rectangle's 4 edges, starting from the
+	 * left and going around clockwise,
+	 * @return
+	 */
+	public Segment[] getEdges() {
+		Vector[] vertices = getVertices();
+		
+		return new Segment[] {
+				new Segment(vertices[0], vertices[1]),
+				new Segment(vertices[1], vertices[2]),
+				new Segment(vertices[2], vertices[3]),
+				new Segment(vertices[3], vertices[0])
+		};
+	}
+	
+	public boolean intersectsWith(Rectangle rect) {
+		return 	(x1 > rect.x2 || x2 < rect.x1) &&
+				(y1 > rect.y2 || y2 < rect.y2);
 	}
 }

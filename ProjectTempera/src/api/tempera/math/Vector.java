@@ -24,6 +24,16 @@ public class Vector {
 	}
 	
 	/**
+	 * Creates a vector from two existing vectors.
+	 * The created vector is pointing from A to B.
+	 * @param A
+	 * @param B
+	 */
+	public Vector(Vector A, Vector B) {
+		this(B.x - A.x, B.y - A.y);
+	}
+	
+	/**
 	 * Returns the x coordinate of this vector
 	 * @return the x coordinate of this vector
 	 */

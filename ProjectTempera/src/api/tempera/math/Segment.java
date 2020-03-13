@@ -24,18 +24,27 @@ public class Segment {
 	}
 	
 	/**
-	 * Returns an endpoint of this segment
-	 * @return a vector representing an endpoint
+	 * Returns an end point of this segment
+	 * @return a vector representing an end point
 	 */
 	public Vector getPointA() {
 		return pointA;
 	}
 	
 	/**
-	 * Returns an endpoint of this segment
-	 * @return a vector representing an endpoint
+	 * Returns an end point of this segment
+	 * @return a vector representing an end point
 	 */
 	public Vector getPointB() {
 		return pointB;
+	}
+	
+	/**
+	 * Gets the vector representation of this
+	 * segment. Essentially point a -> point b
+	 * @return the vector representation of this segment
+	 */
+	public Vector toVector() {
+		return new Vector(pointA, pointB);
 	}
 }
