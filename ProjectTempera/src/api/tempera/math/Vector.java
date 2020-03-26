@@ -73,7 +73,7 @@ public class Vector {
 	 * Gets the magnitude of this vector
 	 * @return the magnitude of this vector
 	 */
-	public double getMagnitude() {
+	public double magnitude() {
 		return x * x + y * y;
 	}
 	
@@ -82,8 +82,8 @@ public class Vector {
 	 * @param magnitude the magnitude of this vector
 	 * @return this vector
 	 */
-	public Vector setMagnitude(double magnitude) {
-		double angle = getAngle();
+	public Vector magnitude(double magnitude) {
+		double angle = angle();
 		
 		x = Math.cos(angle) * magnitude;
 		y = Math.sin(angle) * magnitude;
@@ -95,7 +95,7 @@ public class Vector {
 	 * Gets the angle of this vector
 	 * @return the angle of this vector
 	 */
-	public double getAngle() {
+	public double angle() {
 		return Math.atan2(y, x);
 	}
 	
@@ -104,13 +104,46 @@ public class Vector {
 	 * @param angle the angle of this vector
 	 * @return this vector
 	 */
-	public Vector setAngle(double angle) {
-		double magnitude = getMagnitude();
+	public Vector angle(double angle) {
+		double magnitude = magnitude();
 		
 		x = Math.cos(angle) * magnitude;
 		y = Math.sin(angle) * magnitude;
 		
 		return this;
+	}
+	
+	/**
+	 * Multiplies this vector by a scalar
+	 * @param scalar the value to multiply this vector by
+	 * @return this vector
+	 */
+	public Vector multiply(double scalar) {
+		x *= scalar;
+		y *= scalar;
+		
+		return this;
+	}
+	
+	/**
+	 * Divides this vector by a scalar
+	 * @param scalar the value to divide this vector by
+	 * @return this vector
+	 */
+	public Vector divide(double scalar) {
+		x /= scalar;
+		y /= scalar;
+		
+		return this;
+	}
+	
+	/**
+	 * Gets the dot product of this vector and another
+	 * @param vec the vector to get the dot product of
+	 * @return the dot product of this vector and vec
+	 */
+	public double dot(Vector vec) {
+		return vec.x * x + vec.y * y;
 	}
 	
 	/**

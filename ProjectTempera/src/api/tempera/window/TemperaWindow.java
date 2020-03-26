@@ -1,10 +1,11 @@
 package api.tempera.window;
 
-import java.awt.event.ActionEvent;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import javax.swing.JFrame;
+
+import api.tempera.math.Vector;
 
 public class TemperaWindow extends JFrame {
 	
@@ -32,5 +33,9 @@ public class TemperaWindow extends JFrame {
 	
 	public TemperaPanel getPanel() {
 		return contentPane;
+	}
+	
+	public Vector getCenter() {
+		return new Vector(this.getWidth(), this.getHeight()).divide(2);
 	}
 }
