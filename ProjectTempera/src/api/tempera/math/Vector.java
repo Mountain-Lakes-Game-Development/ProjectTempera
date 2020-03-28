@@ -1,6 +1,6 @@
 package api.tempera.math;
 
-public class Vector {
+public class Vector implements Cloneable {
 	protected double x;
 	protected double y;
 	
@@ -24,6 +24,13 @@ public class Vector {
 	}
 	
 	/**
+	 * Creates a vector with coordinates (0, 0)
+	 */
+	public Vector() {
+		this(0, 0);
+	}
+	
+	/**
 	 * Creates a vector from two existing vectors.
 	 * The created vector is pointing from A to B.
 	 * @param A
@@ -31,6 +38,14 @@ public class Vector {
 	 */
 	public Vector(Vector A, Vector B) {
 		this(B.x - A.x, B.y - A.y);
+	}
+	
+	public String toString() {
+		return String.format("(%f, %f)", x, y);
+	}
+	
+	public Vector clone() {
+		return new Vector(x, y);
 	}
 	
 	/**
@@ -52,6 +67,16 @@ public class Vector {
 	}
 	
 	/**
+	 * Adds a value to the x coordinate of this vector
+	 * @param x the value to add
+	 * @return this vector
+	 */
+	public Vector addX(double x) {
+		this.x += x;
+		return this;
+	}
+	
+	/**
 	 * Gets the y coordinate of this vector
 	 * @return the y coordinate of this vector
 	 */
@@ -66,6 +91,16 @@ public class Vector {
 	 */
 	public Vector setY(double y) {
 		this.y = y;
+		return this;
+	}
+	
+	/**
+	 * Adds a value to the y coordinate of this vector
+	 * @param y the value to add
+	 * @return this vector
+	 */
+	public Vector addY(double y) {
+		this.y += y;
 		return this;
 	}
 	
