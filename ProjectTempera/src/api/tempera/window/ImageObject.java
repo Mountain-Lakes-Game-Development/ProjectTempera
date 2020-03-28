@@ -1,6 +1,7 @@
 package api.tempera.window;
 
-import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 import api.tempera.math.Vector;
@@ -8,16 +9,30 @@ import api.tempera.math.Vector;
 public class ImageObject implements RenderedObject {
 	
 	private Vector position;
-	private BufferedImage image;
+	private Image image;
+	
+	private double halfHeight;
+	private double halfWidth;
 	
 	public ImageObject(BufferedImage image) {
 		this.image = image;
 		position = new Vector(0, 0);
+		
+		halfHeight = image.getHeight() / 2;
+		halfWidth = image.getWidth() / 2;
+	}
+	
+	public ImageObject(BufferedImage image, int width, int height) {
+		this.image = image.getScaledInstance(width, height, 0);
+		position = new Vector(0, 0);
+		
+		halfHeight = height / 2;
+		halfWidth = width / 2;
 	}
 
 	/**
-	 * Gets this object's position. Modifying the returned
-	 * vector will modify this object's information.
+	 * Gets this object's position (center). Modifying the
+	 * returned vector will modify this object's information.
 	 * @return a vector representing this object's position.
 	 */
 	public Vector getPosition() {
@@ -25,11 +40,11 @@ public class ImageObject implements RenderedObject {
 	}
 
 	@Override
-	public void draw(Graphics g) {
-		g.drawImage(
+	public void draw(Graphics2D g2d) {
+		g2d.drawImage(
 				image,
-				(int) position.getX(),
-				(int) position.getY(),
+				(int) (position.getX() - halfWidth),
+				(int) (position.getY() - halfHeight),
 				null);
 	}
 }
