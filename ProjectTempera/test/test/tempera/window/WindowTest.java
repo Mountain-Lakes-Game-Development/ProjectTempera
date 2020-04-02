@@ -16,7 +16,7 @@ public class WindowTest {
 		TemperaWindow window = new TemperaWindow(1000, 500);
 		TemperaPanel panel = window.getPanel();
 		
-		BufferedImage plus = ImageIO.read(new File("src/resources/plus.png"));
+		BufferedImage plus = ImageIO.read(new File("src/resources/plus.jpg"));
 		
 		ImageObject image = new ImageObject(plus, 100, 100);
 		Vector pos = image.getPosition();

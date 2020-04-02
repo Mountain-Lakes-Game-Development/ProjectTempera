@@ -40,11 +40,15 @@ public class ImageObject implements RenderedObject {
 	}
 
 	@Override
-	public void draw(Graphics2D g2d) {
+	public void draw(Graphics2D g2d, Vector center) {
+		
+		int x = (int) (center.getX() + (position.getX() - halfWidth));
+		int y = (int) (center.getY() - (position.getY() + halfHeight));
+		
 		g2d.drawImage(
 				image,
-				(int) (position.getX() - halfWidth),
-				(int) (position.getY() - halfHeight),
+				x,
+				y,
 				null);
 	}
 }
