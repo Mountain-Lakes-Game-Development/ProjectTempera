@@ -38,7 +38,7 @@ public class ImageObject implements RenderedObject {
 	public Vector getPosition() {
 		return position;
 	}
-
+	
 	@Override
 	public void draw(Graphics2D g2d, Vector center) {
 		
