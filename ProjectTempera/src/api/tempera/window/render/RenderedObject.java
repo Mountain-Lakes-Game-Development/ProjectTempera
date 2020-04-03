@@ -1,4 +1,4 @@
-package api.tempera.window;
+package api.tempera.window.render;
 
 import java.awt.Graphics2D;
 

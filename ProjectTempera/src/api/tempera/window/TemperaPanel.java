@@ -12,6 +12,7 @@ import java.util.List;
 import javax.swing.JPanel;
 
 import api.tempera.math.Vector;
+import api.tempera.window.render.RenderedObject;
 
 public class TemperaPanel extends JPanel {
 

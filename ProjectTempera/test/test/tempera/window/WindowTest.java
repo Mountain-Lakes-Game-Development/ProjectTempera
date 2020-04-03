@@ -7,9 +7,9 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import api.tempera.math.Vector;
-import api.tempera.window.ImageObject;
 import api.tempera.window.TemperaPanel;
 import api.tempera.window.TemperaWindow;
+import api.tempera.window.render.ImageObject;
 
 public class WindowTest {
 	public static void main(String... args) throws InterruptedException, IOException {
