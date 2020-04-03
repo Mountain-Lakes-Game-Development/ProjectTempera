@@ -5,17 +5,17 @@ import java.awt.image.BufferedImage;
 
 import api.tempera.math.Vector;
 
-public class ImageObject implements RenderedObject {
+public class TemperaImage implements RenderedObject {
 	
 	private Vector position;
 	private Frame frame;
 	
-	public ImageObject(BufferedImage image) {
+	public TemperaImage(BufferedImage image) {
 		frame = new Frame(image);
 		position = new Vector(0, 0);
 	}
 	
-	public ImageObject(BufferedImage image, int width, int height) {
+	public TemperaImage(BufferedImage image, int width, int height) {
 		frame = new Frame(image.getScaledInstance(width, height, 0));
 		position = new Vector(0, 0);
 	}

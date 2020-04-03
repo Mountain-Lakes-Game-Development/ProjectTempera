@@ -9,7 +9,8 @@ import javax.imageio.ImageIO;
 import api.tempera.math.Vector;
 import api.tempera.window.TemperaPanel;
 import api.tempera.window.TemperaWindow;
-import api.tempera.window.render.ImageObject;
+import api.tempera.window.render.TemperaAnimation;
+import api.tempera.window.render.TemperaAnimationBuilder;
 
 public class WindowTest {
 	public static void main(String... args) throws InterruptedException, IOException {
@@ -17,15 +18,20 @@ public class WindowTest {
 		TemperaPanel panel = window.getPanel();
 		
 		BufferedImage plus = ImageIO.read(new File("src/resources/plus.jpg"));
+		BufferedImage sans = ImageIO.read(new File("src/resources/sans.jpg"));
 		
-		ImageObject image = new ImageObject(plus, 100, 100);
-		Vector pos = image.getPosition();
+		TemperaAnimationBuilder builder = new TemperaAnimationBuilder();
+		builder.addFrame(plus);
+		builder.addFrame(sans);
+		
+		TemperaAnimation animation = builder.getAnimation();
+		
+		Vector pos = animation.getPosition();
 		pos.setX(0).setY(0);
 		
-		panel.addObject(image);
+		panel.addObject(animation);
 		
 		Vector mouse = window.getMouse();
-		
 		Thread thread = new Thread() {
 			public void run() {
 				while(true) {
