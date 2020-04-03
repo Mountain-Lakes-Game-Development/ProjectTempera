@@ -4,11 +4,11 @@ import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TemperaAnimationBuilder {
+public class AnimationBuilder {
 	
 	private List<Frame> frames;
 	
-	public TemperaAnimationBuilder() {
+	public AnimationBuilder() {
 		frames = new ArrayList<Frame>();
 	}
 	
@@ -34,8 +34,8 @@ public class TemperaAnimationBuilder {
 		}
 	}
 	
-	public TemperaAnimation getAnimation() {
-		return new TemperaAnimation(
+	public Animation getAnimation() {
+		return new Animation(
 				frames.toArray(new Frame[frames.size()]));
 	}
 }

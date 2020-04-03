@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 
 import api.tempera.math.Vector;
 
-public interface RenderedObject {
+public interface Render {
 	/**
 	 * Draws this object onto a graphics object. The center
 	 * is the graphics object's center (the center of the panel

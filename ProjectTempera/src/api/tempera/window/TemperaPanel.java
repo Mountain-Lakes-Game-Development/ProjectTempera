@@ -12,13 +12,13 @@ import java.util.List;
 import javax.swing.JPanel;
 
 import api.tempera.math.Vector;
-import api.tempera.window.render.RenderedObject;
+import api.tempera.window.render.Render;
 
 public class TemperaPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	
-	private List<RenderedObject> objects;
+	private List<Render> objects;
 	private Vector mouse;
 	
 	public TemperaPanel() {
@@ -37,22 +37,22 @@ public class TemperaPanel extends JPanel {
 		});
 	}
 
-	public void addObject(RenderedObject object) {
+	public void addObject(Render object) {
 		objects.add(object);
 	}
 	
-	public void addObjects(RenderedObject... objects) {
-		for(RenderedObject object : objects) {
+	public void addObjects(Render... objects) {
+		for(Render object : objects) {
 			addObject(object);
 		}
 	}
 	
-	public void removeObject(RenderedObject object) {
+	public void removeObject(Render object) {
 		objects.remove(object);
 	}
 	
-	public void removeObjects(RenderedObject... objects) {
-		for(RenderedObject object : objects) {
+	public void removeObjects(Render... objects) {
+		for(Render object : objects) {
 			removeObject(object);
 		}
 	}
@@ -69,7 +69,7 @@ public class TemperaPanel extends JPanel {
 	public void paint(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
 		
-		for(RenderedObject object : objects) {
+		for(Render object : objects) {
 			object.draw(g2d, getCenter());
 		}
 		

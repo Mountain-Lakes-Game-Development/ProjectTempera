@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 
 import api.tempera.math.Vector;
 
-public class TemperaAnimation implements RenderedObject {
+public class Animation implements Render {
 	private final Frame[] frames;
 	private int frameIndex; //the frame that is currently being animated
 	private Vector position;
@@ -13,7 +13,7 @@ public class TemperaAnimation implements RenderedObject {
 	 * Initializes an animation from a list of frames
 	 * @param frames the frames that comprise of this animation
 	 */
-	public TemperaAnimation(Frame... frames) {
+	public Animation(Frame... frames) {
 		this.frames = frames;
 		frameIndex = 0;
 		position = new Vector(0, 0);
