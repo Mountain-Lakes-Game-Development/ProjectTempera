@@ -109,7 +109,7 @@ public class Vector implements Cloneable {
 	 * @return the magnitude of this vector
 	 */
 	public double magnitude() {
-		return x * x + y * y;
+		return Math.sqrt(x * x + y * y);
 	}
 	
 	/**

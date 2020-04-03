@@ -8,6 +8,7 @@ import api.tempera.math.Vector;
 public class Frame {
 	
 	private final Image image;
+	private final Vector offset;
 	private final double halfWidth;
 	private final double halfHeight;
 	
@@ -16,7 +17,19 @@ public class Frame {
 	 * @param image the image of the frame
 	 */
 	public Frame(Image image) {
+		this(image, 0, 0);
+	}
+	
+	/**
+	 * Initializes a frame of an animation
+	 * @param image the image of the frame
+	 * @param xOffset how much to offset the x coordinate by
+	 * @param yOffset how much to offset the y coordinate by
+	 */
+	public Frame(Image image, double xOffset, double yOffset) {
 		this.image = image;
+		
+		offset = new Vector(xOffset, yOffset);
 		
 		halfWidth = image.getWidth(null) / 2;
 		halfHeight = image.getHeight(null) / 2;
@@ -31,8 +44,8 @@ public class Frame {
 	public void draw(Graphics2D g2d, Vector center) {
 		g2d.drawImage(
 				image,
-				(int) (center.getX() - halfWidth),
-				(int) (center.getY() - halfHeight),
+				(int) (center.getX() + offset.getX() - halfWidth),
+				(int) (center.getY() - offset.getY() - halfHeight),
 				null);
 	}
 }

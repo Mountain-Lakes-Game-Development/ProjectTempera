@@ -21,8 +21,14 @@ public class WindowTest {
 		BufferedImage sans = ImageIO.read(new File("src/resources/sans.jpg"));
 		
 		TemperaAnimationBuilder builder = new TemperaAnimationBuilder();
-		builder.addFrame(plus);
-		builder.addFrame(sans);
+		Vector offset = new Vector(30, 0);
+		
+		for(int x = 0; x < 30; x++) {
+			System.out.println(offset);
+			
+			builder.addFrame(sans, offset.getX(), offset.getY());
+			offset.angle(offset.angle() + Math.PI / 15);
+		}
 		
 		TemperaAnimation animation = builder.getAnimation();
 		
@@ -36,7 +42,6 @@ public class WindowTest {
 			public void run() {
 				while(true) {
 					pos.setX(mouse.getX()).setY(mouse.getY());
-					System.out.println(pos);
 					
 					try {
 						sleep(10);
