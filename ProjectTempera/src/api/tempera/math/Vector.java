@@ -173,6 +173,18 @@ public class Vector implements Cloneable {
 	}
 	
 	/**
+	 * Adds another vector to this one
+	 * @param vec the vector to add
+	 * @return this vector
+	 */
+	public Vector add(Vector vec) {
+		x += vec.x;
+		y += vec.y;
+		
+		return this;
+	}
+	
+	/**
 	 * Gets the dot product of this vector and another
 	 * @param vec the vector to get the dot product of
 	 * @return the dot product of this vector and vec

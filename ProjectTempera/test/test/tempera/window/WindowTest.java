@@ -1,6 +1,6 @@
 package test.tempera.window;
 
-import java.awt.image.BufferedImage;
+import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 
@@ -17,8 +17,7 @@ public class WindowTest {
 		TemperaWindow window = new TemperaWindow(1000, 500);
 		TemperaPanel panel = window.getPanel();
 		
-		BufferedImage plus = ImageIO.read(new File("src/resources/plus.jpg"));
-		BufferedImage sans = ImageIO.read(new File("src/resources/sans.jpg"));
+		Image sans = ImageIO.read(new File("src/resources/sans.jpg")).getScaledInstance(100, 100, 2);
 		
 		AnimationBuilder builder = new AnimationBuilder();
 		Vector offset = new Vector(30, 0);

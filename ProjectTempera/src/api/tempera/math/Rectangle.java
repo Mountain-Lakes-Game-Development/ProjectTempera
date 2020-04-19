@@ -94,6 +94,11 @@ public class Rectangle {
 		};
 	}
 	
+	/**
+	 * Checks if this rectangle intersects with another
+	 * @param rect the rectangle to compare this one to
+	 * @return if this rectangle and rect intersect
+	 */
 	public boolean intersectsWith(Rectangle rect) {
 		if(x1 > rect.x2 || x2 < rect.x1) return false; //they are on the left or right of each other
 		if(y1 > rect.y2 || y2 < rect.y2) return false; //they are above or below each other
